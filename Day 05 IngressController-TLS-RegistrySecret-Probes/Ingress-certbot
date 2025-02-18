@@ -1,0 +1,42 @@
+Installing certbot
+
+sudo snap install --classic certbot
+
+Run below command to generate certificate
+
+certbot certonly --manual --preferred-challenges=dns --key-type rsa --email devopsformee@gmail.com --server https://acme-v02.api.letsencrypt.org/directory --agree-tos -d *.devopsformee.xyz
+
+
+root@ip-172-31-82-131:~# certbot certonly --manual --preferred-challenges=dns --key-type rsa --email devopsformee@gmail.com --server https://acme-v02.api.letsencrypt.org/directory --agree-tos -d *.devopsformee.xyz
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for *.devopsformee.xyz
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please deploy a DNS TXT record under the name:
+
+_acme-challenge.devopsformee.xyz.
+
+with the following value:
+
+Ed_SLgnNuDD6pBn0Z8OmcAlI-o8hsf38Vzn81lH61lI
+
+Before continuing, verify the TXT record has been deployed. Depending on the DNS
+provider, this may take some time, from a few seconds to multiple minutes. You can
+check if it has finished deploying with aid of online tools, such as the Google
+Admin Toolbox: https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.devopsformee.xyz.
+Look for one or more bolded line(s) below the line ';ANSWER'. It should show the
+value(s) you've just added.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue
+
+Certbot failed to authenticate some domains (authenticator: manual). The Certificate Authority reported these problems:
+  Domain: devopsformee.xyz
+  Type:   dns
+  Detail: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.devopsformee.xyz - check that a DNS record exists for this domain
+
+Hint: The Certificate Authority failed to verify the manually created DNS TXT records. Ensure that you created these in the correct location, or try waiting longer for DNS propagation on the next attempt.
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+root@ip-172-31-82-131:~#
